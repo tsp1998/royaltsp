@@ -3,6 +3,7 @@ import React from 'react'
 //components
 import Container from '../components/Container/Container'
 import SideBar from '../components/SideBar/SideBar'
+import VideoCard from '../components/Card/VideoCard'
 
 //styled
 import styled from 'styled-components'
@@ -18,8 +19,9 @@ const IndexPageStyled = styled.div`
 const IndexPage = () => {
   return (
     <IndexPageStyled className="index-page">
-      <SideBar />
-      <Container />
+      {/* <SideBar /> */}
+      {/* <Container /> */}
+      <VideoCard />
     </IndexPageStyled>
   )
 }
