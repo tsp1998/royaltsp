@@ -12,6 +12,9 @@ const SideBarStyled = styled.div`
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+  transform: scale(${({ isSideBarOpen }) => isSideBarOpen ? 1 : 0});
+  pointer-events: ${({ isSideBarOpen }) => isSideBarOpen ? 'all' : 'none'};
+  transition: all .5s;
 
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */
@@ -22,26 +25,32 @@ const SideBarStyled = styled.div`
   }
 `
 
-const AuthorImage = styled.img`
-  width: 10rem;
-  border-radius: 50%;
-`
-
 const AuthorBio = styled.div`
-  width: 25rem;
+  width: 98%;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 0;
+  padding: 2rem 0;
   border-radius: .5rem;
   box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
+
+  @media only screen and (max-width: 37.5em) {
+    /* phone //600px */
+    padding: 4rem 0;
+  }
 
   h2 {
     font-weight: 500;
     text-align: center;
   }
 `
+
+const AuthorImage = styled.img`
+  width: 10rem;
+  border-radius: 50%;
+`
+
 const SocialLinksContainer = styled.div`
   display: flex;
   width: 80%;
@@ -53,9 +62,9 @@ const SocialLinkImage = styled.img`
   width: 2rem;
 `
 
-const SideBar = () => {
+const SideBar = ({ sideBarData: { isSideBarOpen } }) => {
   return (
-    <SideBarStyled className="side-bar">
+    <SideBarStyled className="side-bar" isSideBarOpen={isSideBarOpen}>
       <AuthorBio className="author-bio">
         <AuthorImage src="/images/author.jpg" alt="Author" className="img-author" />
         <h1>Shubham Tandale</h1>
