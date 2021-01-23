@@ -1,17 +1,19 @@
 import React from 'react'
 
+//components
+import Hero from '../Hero/Hero'
+
 //styles
 import styled from 'styled-components'
 const ContainerStyled = styled.div`
-  width: 80%;
-  margin-left: 20%;
-  background: #fff;
+  width: 100%;
+  background: #f8f7f7;
 `
 
 const Container = () => {
   return (
     <ContainerStyled className="container">
-      Container
+      <Hero />
     </ContainerStyled>
   )
 }

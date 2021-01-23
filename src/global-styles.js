@@ -16,4 +16,9 @@ export default createGlobalStyle`
     font-weight: 300;
     line-height: 1.6;
   }
+
+  a {
+    text-decoration: none;
+    color: #222;
+  }
 `

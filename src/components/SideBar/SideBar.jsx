@@ -5,7 +5,8 @@ import styled from 'styled-components'
 const SideBarStyled = styled.div`
   width: 20%;
   background: blue;
-  position: fixed;
+  position: absolute;
+    top: 0; right: 0;
   height: 100vh;
   padding: 1rem;
   display: flex;
@@ -15,6 +16,7 @@ const SideBarStyled = styled.div`
   transform: scale(${({ isSideBarOpen }) => isSideBarOpen ? 1 : 0});
   pointer-events: ${({ isSideBarOpen }) => isSideBarOpen ? 'all' : 'none'};
   transition: all .5s;
+  z-index: 1;
 
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */

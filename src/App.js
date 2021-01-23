@@ -4,6 +4,8 @@ import logo from './logo.svg';
 
 //components
 import Loader from './components/utils/Loader'
+import Header from './components/Header/Header'
+import SideBar from './components/SideBar/SideBar'
 
 //styles
 import GlobalStyles from './global-styles'
@@ -25,18 +27,19 @@ const IndexPage = lazy(() => import('./pages/IndexPage'));
 
 function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const sideBarData = {
+    isSideBarOpen,
+    setIsSideBarOpen: () => setIsSideBarOpen(prevState => !prevState)
+  }
 
   return (
     <AppStyled className="App">
       <GlobalStyles />
       <Router>
         <Suspense fallback={<LoaderWrapper><Loader /></LoaderWrapper>}>
-          <IndexPage
-            sideBarData={{
-              isSideBarOpen,
-              setIsSideBarOpen: () => setIsSideBarOpen(prevState => !prevState)
-            }}
-          />
+          <Header sideBarData={sideBarData} />
+          <SideBar sideBarData={sideBarData} />
+          <IndexPage />
         </Suspense>
       </Router>
     </AppStyled>

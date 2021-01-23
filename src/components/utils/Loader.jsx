@@ -34,7 +34,7 @@ const dotColors = ['#7ef9ff', '#89cff0', '#4682b4', '#0f52ba', '#000080']
 
 const Loader = () => {
   return (
-    <LoaderStyled className="loading">
+    <LoaderStyled className="isLoading">
       {
         dotColors.map((dotColor, i) => <LoaderDot className="dot" size='1' index={i} key={'dot' + i} />)
       }
