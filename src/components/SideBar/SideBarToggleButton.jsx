@@ -27,6 +27,11 @@ const SideBarToggleButtonStyled = styled.div`
     right: .5rem;
   `}
 
+  @media only screen and (max-width: 37.5em) {
+    /* phone //600px */
+    width: 4rem;
+    height: 4rem;
+  }
 `
 
 const SideBarToggleButtonBars = styled.div`
@@ -86,6 +91,7 @@ const SideBarToggleButtonCloseBars = styled.div`
 `
 
 const SideBarToggleButton = ({ sideBarData: { isSideBarOpen, setIsSideBarOpen } }) => {
+  
   return (
     <SideBarToggleButtonStyled isSideBarOpen={isSideBarOpen} onClick={setIsSideBarOpen}>
       {isSideBarOpen ? <SideBarToggleButtonCloseBars /> : <ProfileImage size="small" />}

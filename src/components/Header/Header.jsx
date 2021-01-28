@@ -38,7 +38,15 @@ const Brand = styled.div`
   text-align: center;
   margin-left: ${({ isSideBarOpen }) => isSideBarOpen ? 3 : 2.1}rem;
   padding: .5rem 1rem;
+  box-shadow: .3rem .3rem .3rem rgba(0,0,0, .3), -.3rem -.3rem .3rem rgba(0,0,0, .3);
+  border-radius: .5rem;
   z-index: 2;
+
+  :hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform .5s;
+  }
 
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */

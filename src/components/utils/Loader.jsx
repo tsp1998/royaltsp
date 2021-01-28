@@ -32,11 +32,16 @@ const LoaderDot = styled.div`
 
 const dotColors = ['#7ef9ff', '#89cff0', '#4682b4', '#0f52ba', '#000080']
 
-const Loader = () => {
+const Loader = ({ size, dots }) => {
   return (
     <LoaderStyled className="isLoading">
       {
-        dotColors.map((dotColor, i) => <LoaderDot className="dot" size='1' index={i} key={'dot' + i} />)
+        dotColors.slice(0, dots).map((dotColor, i) => <LoaderDot
+          className="dot"
+          size={size || '1'}
+          index={i}
+          key={'dot' + i}
+        />)
       }
     </LoaderStyled>
   )

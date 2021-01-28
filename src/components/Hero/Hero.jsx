@@ -1,12 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 
 //components
 import Button from '../Button/Button'
 import AuthorImage from '../Image/AuthorImage'
-
-//assets
-import Resume from '../../assets/PDFs/Resume.pdf'
+import Loader from '../utils/Loader'
 
 //styles
 import styled from 'styled-components'
@@ -104,9 +102,13 @@ const Buttons = styled.div`
 
 const Hero = (props) => {
 
+  const [isLoading, setLoading] = useState(false);
+
   const getCV = () => {
     // props.history.push(Resume);
-    window.open(Resume, '_self');
+    setLoading(true);
+    setTimeout(() => setLoading(false), 1000 * 5);
+    window.open('https://onedrive.live.com/download?cid=5072862CE7D73399&resid=5072862CE7D73399%215279&authkey=ALySX1H55mqlEew&em=2', '_self');
   }
 
   return (
@@ -124,7 +126,13 @@ const Hero = (props) => {
           >
             Know More
           </Button>
-          <Button style={{ textTransform: 'uppercase' }} size="medium" onClick={getCV}>Get CV</Button>
+          <Button
+            style={{ textTransform: 'uppercase' }}
+            size="medium"
+            onClick={getCV}
+          >
+            {isLoading ? <Loader size=".7" dots="3" /> : 'Get CV'}
+          </Button>
         </Buttons>
       </IntroSection>
       <BannerSection>
