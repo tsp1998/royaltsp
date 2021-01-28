@@ -50,6 +50,7 @@ const AuthorBio = styled.div`
 
 const AuthorImage = styled.img`
   width: 10rem;
+  height: 10rem;
   border-radius: 50%;
 `
 
@@ -68,7 +69,7 @@ const SideBar = ({ sideBarData: { isSideBarOpen } }) => {
   return (
     <SideBarStyled className="side-bar" isSideBarOpen={isSideBarOpen}>
       <AuthorBio className="author-bio">
-        <AuthorImage src="/images/author.jpg" alt="Author" className="img-author" />
+        <AuthorImage src="/images/author-profile.jpg" alt="Author" className="img-author" />
         <h1>Shubham Tandale</h1>
         <h2>Full Stack Developer</h2>
         <SocialLinksContainer className="social-links">

@@ -12,10 +12,16 @@ const LinksStyled = styled.div`
 
 const Link = styled(NavLink)`
   text-transform: uppercase;
+  padding: .5rem 1rem;
+  box-shadow: .2rem .2rem .5rem rgba(0,0,0, .1);
+  border-radius: .5rem;
+
   
   :hover {
-    color: #1903e1;
-    /* border-bottom: 1px solid #1903e1; */
+    color: #fff;
+    background: #1cc93e;
+    box-shadow: .2rem .2rem .5rem rgba(113, 209, 75, .9);
+    transition: background .5s ease-in;
   }
 `
 

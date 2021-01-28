@@ -30,16 +30,22 @@ const HeaderStyled = styled.div`
 `
 
 const Brand = styled.div`
-  font-weight: 600;
-  background: #007ad6;
+  font-weight: 500;
+  font-size: 2.2rem;
+  background: linear-gradient(to right, #fa0175, #6900b5);
   color: #fff;
-  width: 8%;
-  margin-left: ${({ isSideBarOpen }) => isSideBarOpen ? 3 : 2}rem;
+  width: 10%;
+  text-align: center;
+  margin-left: ${({ isSideBarOpen }) => isSideBarOpen ? 3 : 2.1}rem;
+  padding: .5rem 1rem;
   z-index: 2;
 
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */
-    width: 28%;
+    width: 30%;
+    font-size: 1.8rem;
+    padding: .5rem;
+    margin-left: 2.3rem;
   }
 `
 

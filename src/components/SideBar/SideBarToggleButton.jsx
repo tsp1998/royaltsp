@@ -12,11 +12,14 @@ const SideBarToggleButtonStyled = styled.div`
   /* border-radius: .5rem; */
   width: 4.5rem;
   height: 4.5rem;
-  border-radius: 50%;
+  border-radius: ${({ isSideBarOpen }) => isSideBarOpen ? '15%' : '50%'};
   box-shadow: .2rem .2rem .5rem rgba(0,0,0, .5);
   z-index: 2;
   cursor: pointer;
   margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ${({ isSideBarOpen }) => isSideBarOpen && css`
     position: absolute;
@@ -26,7 +29,7 @@ const SideBarToggleButtonStyled = styled.div`
 
 `
 
-const SideBarToggleButtonBar = styled.div`
+const SideBarToggleButtonBars = styled.div`
   /* display: none; */
   position: relative;
 
@@ -54,11 +57,38 @@ const SideBarToggleButtonBar = styled.div`
   }
 `
 
+const SideBarToggleButtonCloseBars = styled.div`
+  /* display: none; */
+  position: relative;
+
+  &, :before, :after {
+    width: 2.5rem;
+    height: .2em;
+    background: #fff;
+    display: inline-block;
+  }
+
+  :before, :after {
+    content: '';
+    position: absolute;
+    background: #000;
+    transition: all .2s;
+  }
+
+  :before { 
+    top: 0;  
+    transform: rotate(135deg); 
+  }
+  :after { 
+    top: 0;  
+    transform: rotate(-135deg); 
+  }
+`
+
 const SideBarToggleButton = ({ sideBarData: { isSideBarOpen, setIsSideBarOpen } }) => {
   return (
     <SideBarToggleButtonStyled isSideBarOpen={isSideBarOpen} onClick={setIsSideBarOpen}>
-      {/* <SideBarToggleButtonBar isSideBarOpen={isSideBarOpen} /> */}
-      <ProfileImage size="small" />
+      {isSideBarOpen ? <SideBarToggleButtonCloseBars /> : <ProfileImage size="small" />}
     </SideBarToggleButtonStyled>
   )
 }
