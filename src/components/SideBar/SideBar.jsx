@@ -73,13 +73,13 @@ const SideBar = ({ sideBarData: { isSideBarOpen } }) => {
         <h1>Shubham Tandale</h1>
         <h2>Full Stack Developer</h2>
         <SocialLinksContainer className="social-links">
-          <a href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/linked-in.png" alt="Linked In" /></a>
-          <a href="https://github.com/tsp1998"><SocialLinkImage src="/images/logos/github.png" alt="GitHub" /></a>
-          <a href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/facebook.png" alt="Facebook" /></a>
-          <a href="https://twitter.com/royaltsp"><SocialLinkImage src="/images/logos/twitter.png" alt="Twiiter" /></a>
-          <a href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/instagram.png" alt="Instagram" /></a>
-          <a href="https://www.sololearn.com/Profile/1458532"><SocialLinkImage src="/images/logos/sololearn.jpg" alt="Solo Learn" /></a>
-          <a href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/discord.webp" alt="Discord" /></a>
+          <a onClick={alert} href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/linked-in.png" alt="Linked In" /></a>
+          <a onClick={alert} href="https://github.com/tsp1998"><SocialLinkImage src="/images/logos/github.png" alt="GitHub" /></a>
+          <a onClick={alert} href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/facebook.png" alt="Facebook" /></a>
+          <a onClick={alert} href="https://twitter.com/royaltsp"><SocialLinkImage src="/images/logos/twitter.png" alt="Twiiter" /></a>
+          <a onClick={alert} href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/instagram.png" alt="Instagram" /></a>
+          <a onClick={alert} href="https://www.sololearn.com/Profile/1458532"><SocialLinkImage src="/images/logos/sololearn.jpg" alt="Solo Learn" /></a>
+          <a onClick={alert} href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/discord.webp" alt="Discord" /></a>
         </SocialLinksContainer>
       </AuthorBio>
     </SideBarStyled>
