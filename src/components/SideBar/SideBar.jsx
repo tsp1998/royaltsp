@@ -4,7 +4,8 @@ import React from 'react'
 import styled from 'styled-components'
 const SideBarStyled = styled.div`
   width: 20%;
-  background: blue;
+  background: linear-gradient(to bottom, rgba(17, 83, 252, .8) 0%, 
+  rgba(164, 21, 235, .8) 70%) ;
   position: absolute;
     top: 0; right: 0;
   height: 100vh;
@@ -80,6 +81,7 @@ const SideBar = ({ sideBarData: { isSideBarOpen } }) => {
           <a onClick={alert} href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/instagram.png" alt="Instagram" /></a>
           <a onClick={alert} href="https://www.sololearn.com/Profile/1458532"><SocialLinkImage src="/images/logos/sololearn.jpg" alt="Solo Learn" /></a>
           <a onClick={alert} href="http://linkedin.com/in/royaltsp"><SocialLinkImage src="/images/logos/discord.webp" alt="Discord" /></a>
+          <button onClick={alert}>Hello</button>
         </SocialLinksContainer>
       </AuthorBio>
     </SideBarStyled>
