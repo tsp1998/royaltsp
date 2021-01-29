@@ -4,8 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 const SideBarStyled = styled.div`
   width: 20%;
-  background: linear-gradient(to bottom, rgba(17, 83, 252, .8) 0%, 
-  rgba(164, 21, 235, .8) 70%) ;
+  background: linear-gradient(to bottom, rgba(17, 83, 252, .8) 0%, rgba(164, 21, 235, .8) 70%) ;
   position: absolute;
     top: 0; right: 0;
   height: 100vh;
