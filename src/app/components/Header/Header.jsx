@@ -7,18 +7,17 @@ import Links from './Links'
 //styles
 import styled from 'styled-components'
 const HeaderStyled = styled.div`
-  font-size: 1.6rem;
-  font-weight: 500;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 7rem;
+  height: 8rem;
   box-shadow: 0px 1px 10px rgba(0,0,0, .2);
 
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */
     justify-content: space-between;
+    height: 10rem;
   }
 
   .links {
@@ -51,8 +50,6 @@ const Brand = styled.div`
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */
     width: 30%;
-    font-size: 1.8rem;
-    padding: .5rem;
     margin-left: 2.3rem;
   }
 `

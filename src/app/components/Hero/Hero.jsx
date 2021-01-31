@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
 import { withRouter } from 'react-router-dom'
+
+//data
+import quotes from '../../data/quotes.json'
 
 //components
 import Button from '../Button/Button'
@@ -10,8 +14,7 @@ import Loader from '../utils/Loader'
 import styled from 'styled-components'
 const HeroStyled = styled.div`
   width: 100%;
-  height: 50rem;
-  padding: 6rem 10rem;
+  padding: 6rem 10rem 2rem;
   display: flex;
   justify-content: space-between;
 
@@ -21,7 +24,7 @@ const HeroStyled = styled.div`
   }
 `
 
-const IntroSection = styled.div`
+const ShortIntroSection = styled.div`
   
 `
 
@@ -33,18 +36,14 @@ const BannerSection = styled.div`
 `
 
 const Greeting = styled.h1`
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: normal;
   position: relative;
   text-transform: uppercase;
   letter-spacing: .4rem;
-  color: #111;
+  color: #222;
 
   @media only screen and (max-width: 37.5em) {
-    /* phone //600px */
-    font-size: 2rem;
-    letter-spacing: .2rem;
-    word-spacing: .1rem !important;
     margin-bottom: .5rem;
   }
 `
@@ -54,7 +53,7 @@ const GreetingWithLine = styled(Greeting)`
     content: '';
     position: absolute;
       top: 50%; left: 17rem;
-    background: #111;
+    background: #222;
     width: 40rem;
     height: 2px;
 
@@ -66,18 +65,12 @@ const GreetingWithLine = styled(Greeting)`
 `
 
 const Role = styled.h1`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: normal;
   position: relative;
   text-transform: uppercase;
   letter-spacing: .4rem;
-  color: #111;
-
-  @media only screen and (max-width: 37.5em) {
-    /* phone //600px */
-    font-size: 1.5rem;
-    letter-spacing: .2rem;
-  }
+  color: #333;
 `
 
 const Buttons = styled.div`
@@ -89,7 +82,6 @@ const Buttons = styled.div`
   @media only screen and (max-width: 37.5em) {
     /* phone //600px */
     width: 100%;
-    flex-direction: column;
   }
 
   .btn {
@@ -100,8 +92,20 @@ const Buttons = styled.div`
   }
 `
 
-const Hero = (props) => {
+const Quote = styled.span`
+  width: 80%;
+  font-size: 2rem;
+  display: inline-block;
+  color: #47aa15;
+  text-shadow: 1px 1px 1px rgba(0,0,0, .2);
+  letter-spacing: .2rem;
+  margin: 3rem auto;
+  text-align: justify;
+`
 
+const Hero = ({ scrollToIntroductionSection }) => {
+
+  const [quote, setQuote] = useState('')
   const [isLoading, setLoading] = useState(false);
 
   const getCV = () => {
@@ -111,18 +115,23 @@ const Hero = (props) => {
     window.open('https://onedrive.live.com/download?cid=5072862CE7D73399&resid=5072862CE7D73399%215279&authkey=ALySX1H55mqlEew&em=2', '_self');
   }
 
+  const getQuote = () => quotes[Math.floor(Math.random() * quotes.length)];
+
+  useEffect(() => setQuote(getQuote()), []);
+
   return (
     <HeroStyled>
-      <IntroSection>
+      <ShortIntroSection>
         <GreetingWithLine>Hello</GreetingWithLine>
-        <Greeting style={{ fontWeight: 'bold', wordSpacing: '1rem', color: '#000' }}>I am Shubham Tandale</Greeting>
+        <Greeting style={{ fontWeight: 'bold', wordSpacing: '1rem', color: '#222' }}>I am Shubham Tandale</Greeting>
         <Role>Software Engineer</Role>
-        <Role>Full Stack Developer</Role>
-        <Role>Blockchain Developer</Role>
+        <Role>Full Stack / Blockchain Developer</Role>
+        <Role>Artist, Singer and Dancer</Role>
         <Buttons>
           <Button
             style={{ textTransform: 'uppercase', background: '#4000d6', color: '#fff' }}
             size="medium"
+            onClick={scrollToIntroductionSection}
           >
             Know More
           </Button>
@@ -134,7 +143,9 @@ const Hero = (props) => {
             {isLoading ? <Loader size=".7" dots="3" /> : 'Get CV'}
           </Button>
         </Buttons>
-      </IntroSection>
+
+        <Quote>{quote}</Quote>
+      </ShortIntroSection>
       <BannerSection>
         <AuthorImage />
       </BannerSection>

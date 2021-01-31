@@ -1,6 +1,5 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
-import logo from './logo.svg';
 
 //components
 import Loader from './components/utils/Loader'
@@ -9,8 +8,9 @@ import SideBar from './components/SideBar/SideBar'
 
 //styles
 import GlobalStyles from './global-styles'
-import styled from 'styled-components'
-const AppStyled = styled.div`
+import styled, { ThemeProvider } from 'styled-components'
+import theme1 from './themes/theme1';
+const AppStyled = styled(ThemeProvider)`
   
 `
 
@@ -33,7 +33,7 @@ function App() {
   }
 
   return (
-    <AppStyled className="App">
+    <AppStyled className="App" theme={theme1}>
       <GlobalStyles />
       <Router>
         <Suspense fallback={<LoaderWrapper><Loader /></LoaderWrapper>}>

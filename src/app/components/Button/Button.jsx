@@ -9,7 +9,7 @@ const ButtonStyled = styled.div`
   width: ${({ size }) => SIZES[size] * 70}px;
   height: ${({ size }) => SIZES[size] * 23}px;
   border-radius: 7px;
-  font-size: ${({ size }) => SIZES[size] * .8}rem;
+  font-size: ${({ size }) => SIZES[size] * 7.5}px;
   background-color: #fff;
   color: #333;
   display: inline-flex;
@@ -24,7 +24,7 @@ const ButtonStyled = styled.div`
   }
 `
 
-const Button = ({ children, className, style, size, isLoading, onClick, ...rest }) => {
+const Button = ({ children, className = '', style, size, isLoading, onClick, ...rest }) => {
   return (
     <ButtonStyled
       className={`btn ${className}`}

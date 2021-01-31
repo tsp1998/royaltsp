@@ -11,7 +11,7 @@ const ProfileImageStyled = styled.img`
   border-radius: 50%;
 `
 
-const ProfileImage = ({ className, style, size, ...rest }) => {
+const ProfileImage = ({ className = '', style, size, ...rest }) => {
   return (
     <ProfileImageStyled
       className="profile-image"

@@ -11,6 +11,8 @@ const LinksStyled = styled.div`
 `
 
 const Link = styled(NavLink)`
+  font-size: 1.7rem;
+  color: #222;
   text-transform: uppercase;
   padding: .5rem 1rem;
   box-shadow: .2rem .2rem .5rem rgba(0,0,0, .1);
@@ -25,7 +27,7 @@ const Link = styled(NavLink)`
   }
 `
 
-const Links = ({ isSideBarOpen, className, style }) => {
+const Links = ({ isSideBarOpen, className = '', style }) => {
   return (
     <LinksStyled isSideBarOpen={isSideBarOpen} className={`links ${className}`} style={style}>
       <Link to='/'>About</Link>

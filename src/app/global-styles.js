@@ -9,6 +9,12 @@ export default createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @media only screen and (max-width: 37.5em) {
+      /* phone //600px */
+      font-size: 30%;
+    }
   }
 
   body {

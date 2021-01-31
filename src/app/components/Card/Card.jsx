@@ -13,7 +13,7 @@ const CardStyled = styled.div`
   box-shadow: 1px 1px 10px rgba(0,0,0, .2);
 `
 
-const Card = ({ children, className, size, style, isLoading }) => {
+const Card = ({ children, className = '', size, style, isLoading }) => {
   return (
     <CardStyled
       className={`card ${className}`}

@@ -37,7 +37,7 @@ const ProfileSubTitle = styled.span`
   font-size: ${({ size }) => SIZES[size] * 5}px;
 `
 
-const ProfileCard = ({ children, className, style, isLoading, ...rest }) => {
+const ProfileCard = ({ children, className = '', style, isLoading, ...rest }) => {
   return (
     <ProfileCardStyled
       className={`profile-card ${className}`}
