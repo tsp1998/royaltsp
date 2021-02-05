@@ -35,8 +35,8 @@ const Links = ({ isSideBarOpen, className = '', style }) => {
       <Link to='/'>Projects</Link>
       <Link to='/'>Gallery</Link>
       <Link to='/'>Achievements</Link>
-      <Link to='/'>Singing</Link>
-      <Link to='/'>Dancing</Link>
+      {/* <Link to='/'>Singing</Link>
+      <Link to='/'>Dancing</Link> */}
       <Link to='/'>Hobbies</Link>
     </LinksStyled>
   )

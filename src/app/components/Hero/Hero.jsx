@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import quotes from '../../data/quotes.json'
 
 //components
-import Button from '../Button/Button'
+import Button1 from '../Button/Button1'
 import AuthorImage from '../Image/AuthorImage'
 import Loader from '../utils/Loader'
 
@@ -128,20 +128,20 @@ const Hero = ({ scrollToIntroductionSection }) => {
         <Role>Full Stack / Blockchain Developer</Role>
         <Role>Artist, Singer and Dancer</Role>
         <Buttons>
-          <Button
+          <Button1
             style={{ textTransform: 'uppercase', background: '#4000d6', color: '#fff' }}
             size="medium"
             onClick={scrollToIntroductionSection}
           >
             Know More
-          </Button>
-          <Button
+          </Button1>
+          <Button1
             style={{ textTransform: 'uppercase' }}
             size="medium"
             onClick={getCV}
           >
             {isLoading ? <Loader size=".7" dots="3" /> : 'Get CV'}
-          </Button>
+          </Button1>
         </Buttons>
 
         <Quote>{quote}</Quote>

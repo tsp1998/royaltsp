@@ -4,7 +4,12 @@ import React, { useRef, useEffect } from 'react'
 import ImageSection from '../Image/ImageSection'
 
 //styles
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
+
+const screen = {
+  phone: (...styles) => `@media (max-width: 37.5em) { ${styles} }`
+}
+
 const IntroductionStyled = styled.div`
   display: flex;
   
@@ -15,6 +20,10 @@ const IntroductionStyled = styled.div`
       /* box-shadow: 1rem 1rem 1rem rgba(0,0,0, .2); */
     }
   }
+  
+  ${screen.phone(css`
+    background: blue;
+  `)}
 `
 
 const IntroSection = styled.div`
