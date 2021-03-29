@@ -31,6 +31,7 @@ function App() {
 
   const redirect = () => {
     const urls = [
+      'http://royaltsp.great-site.net/thecbx/health-check.php',
       'https://thecbx.000webhostapp.com/health-check.php',
     ];
 
