@@ -33,40 +33,43 @@ function App() {
   const [error, setError] = useState(false);
 
   const redirect = () => {
-    const urls = [
-      'https://royal-tsp.000webhostapp.com/health-check.php',
-    ];
+    return new Promise((resolve, reject) => {
+      const urls = [
+        'https://royal-tsp.000webhostapp.com/health-check.php',
+      ];
 
-    setError(false);
-    let errorCount = 0;
+      setError(false);
+      let errorCount = 0;
 
-    urls.forEach(async url => {
-      try {
-        setLoading(true);
-        let res = await fetch(url);
-        res = await res.json();
-        console.log(`res`, res)
-        if (res && typeof res === 'string' && res.indexOf('http') > -1) {
-          window.location.assign(res);
-          return true;
+      urls.forEach(async url => {
+        try {
+          setLoading(true);
+          let res = await fetch(url);
+          res = await res.json();
+          console.log(`res`, res)
+          if (res && typeof res === 'string' && res.indexOf('http') > -1) {
+            window.location.assign(res);
+            resolve(res);
+          }
+          setLoading(false);
+        } catch (error) {
+          setLoading(false);
+          errorCount++;
+          console.log('Error', error);
         }
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        errorCount++;
-        console.log('Error', error);
+      })
+
+      if (errorCount) {
+        setError(true);
+        reject();
       }
     })
-
-    if (errorCount) {
-      setError(true);
-    }
   }
 
   React.useEffect(() => {
-    if (!redirect()) {
-      window.location.assign('http://royaltsp.great-site.net/thecbx/health-check.php')
-    }
+    redirect()
+      .then(res => window.location.assign(res))
+      .catch(err => window.location.assign('http://royaltsp.great-site.net/thecbx/health-check.php'))
   }, [])
 
   // const [isSideBarOpen, setIsSideBarOpen] = useState(false);
